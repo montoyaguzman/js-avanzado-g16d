@@ -1,3 +1,5 @@
+// const fs = require('fs');
+
 // Para cambiar los permisos de un archivo
 // fs.chmod(path, mode, callback);
 
