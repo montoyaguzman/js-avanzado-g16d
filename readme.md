@@ -23,7 +23,7 @@ Es un [lenguaje de marcado ligero](https://es.wikipedia.org/wiki/Lenguajes_de_ma
 
 ### Comandos Git
 
-#### Estado del repo / commits
+#### Estado del repo
 
 ```
 # ver estado del repo
@@ -143,37 +143,6 @@ git commit
 ```
 
 ### Áreas de estudio
-
-#### **Introducción a la lógica de programación**
-
-Lenguaje natural, diagramas de flujo, pseudocodigo, pruebas de escritorio, etc.
-
-#### Ingeniería de software
-
-Es una área que estudia la creación y calidad del software.
-
-El ciclo de vida del software, diseño de diagramas, documentación del software son algunos de los topicos de está rama.
-
-**Metodologías de desarrollo de software**
-
-* Waterfall.
-* Metodologías ágiles (Extreme programming, Scrum, Kanan, etc.).
-
-#### **Matemáticas discretas y algebra boleana**
-
-Condiciones, teoría de conjuntos, sistemas de númeración y tablas de verdad.
-
-#### Estructuras de datos
-
-Las estructuras de datos son una forma de organizar grandes cantidades de datos en la computadora, de tal manera que nos permita realizar unas operaciones con ellas de forma  **muy eficiente**.
-
-* Arrays.
-* Pilas y colas.
-* Listas enlazadas y doblemente enlazadas.
-* Árboles.
-* Mapas y Conjuntos.
-* Grafos
-
 #### Redes de computadora
 
 Área donde se estudia la comunicación de redes de telecomunicaciones y funcionamiento del internet.
