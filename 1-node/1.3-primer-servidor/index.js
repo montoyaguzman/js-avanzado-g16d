@@ -5,6 +5,7 @@ const server = http.createServer((request, response) => {
     const mimeType = { 'Content-Type' : 'text/html' } ;
     response.writeHead(status, mimeType);
     response.write('<html> <body> Adios </body> </html>');
+    response.end();
 });
 
 server.listen(8000);
