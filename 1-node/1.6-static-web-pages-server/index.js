@@ -19,8 +19,6 @@ const server = http.createServer((request, response) => {
         fileSystemPath = `static${path}`
     }
 
-    console.log('aqui', fileSystemPath);
-
     // Paso 3: Validar que el fileSystemPath tenga un status valido,
     // ¿Existe el archivo?
     fs.stat(fileSystemPath, error => {
