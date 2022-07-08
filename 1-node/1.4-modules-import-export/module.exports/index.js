@@ -1,4 +1,4 @@
-const operations = require('./functions');
+const operations = require('./module.exports/functions');
 
 function main() {
     let numero1 = 10;
