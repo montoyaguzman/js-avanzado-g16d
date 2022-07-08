@@ -14,7 +14,16 @@ function divide(a, b) {
     return a / b;
 }
 
-exports.sum = sum;
-exports.substract = substract;
-exports.multiply = multiply;
+// exports.sum = sum;
+// this.exports.sum = sum;
+// exports.substract = substract;
+// exports.multiply = multiply;
+// exports.divide = divide;
+
+module.exports = {
+    sum,
+    substract,
+    multiply,
+    divideNumbers: divide,
+};
 
