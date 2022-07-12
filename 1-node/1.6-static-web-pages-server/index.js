@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
+const colors = require('colors');
 
 const server = http.createServer((request, response) => {
     // Paso 1: Obtener la url, concretamente la path de la request
@@ -22,7 +23,6 @@ const server = http.createServer((request, response) => {
     // Paso 3: Validar que el fileSystemPath tenga un status valido,
     // ¿Existe el archivo?
     fs.stat(fileSystemPath, error => {
-        console.log(error)
         if (!error) {
             // Paso 3.1: Existe fileSystemPath e intentamos leer el archivo
             fs.readFile(fileSystemPath, (error, file) => {
@@ -48,7 +48,7 @@ const server = http.createServer((request, response) => {
             const status = 404;
             const mimeType = { 'Content-Type' : 'text/html' } ;
             response.writeHead(status, mimeType);
-            response.write('<html> <body> 404 notFound </body> </html>');
+            response.write('<html> <body> 404 Not found </body> </html>');
             response.end();
         }
     });
@@ -56,4 +56,12 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(8080);
-console.log('servidor reiniciado');
+
+console.log('Servidorsito...'.rainbow);
+console.log('== esperando peticiones =='.blue);
+
+/**
+ * RETO
+ * 1. Quitar la repeticion de la llamada a los metodos writeHead, write y end
+ * 2. Quitar el texto en duro 'Content-Type'
+ */
