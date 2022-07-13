@@ -14,9 +14,8 @@
 10. [API Rest](#api-rest)
 11. [ExpressJS](#expressjs)
 12. [Deploys](#deploys)
-13. [Glosario](#glosario)
-
-
+13. [Notas adicionales](#notas-adicionales)
+14. [Glosario](#glosario)
 
 ### Node.
 
@@ -28,60 +27,74 @@ Con ayuda de node se puede:
 - Crear, leer y escribir archivos.
 - Procesar y almacenar archivos enviados desde una página web.
 - Realizar API Rest.
-- Acceder a bases de datos relacionales y no relacionales.  
-        
+- Acceder a bases de datos relacionales y no relacionales.
+
 Dentro de node se utilizan mucho los módulos y las callbacks.
+
 - **Módulo:** Permiten aislar parte de nuestro código en diferentes archivos y mandarlos llamar sólo cuándo los necesitamos.
-  
+
 Existen dos formas de utilizar módulos en node:
     - Commun JS.
     - ES6 Imports.
 
 - **Callback:** Es una funcion que se pasa como parametro a otra funcion.
 
+**Path**
+
 Una ruta o path indica una ubicación a nivel de carpeta de algun fichero dentro del
 sistema de archivos.
-Ejemplos de rutas
-./ Signigica ahi mismo
+**Ejemplos de rutas**
 
-../ Regresar un nivel de carpetas
+```
+/# Raiz
+/
+
+/# Significa ahi mismo
+./
+
+/# Regresar un nivel de carpetas../
 ../../
+```
 
-2
-Localhost => La direccion de mi propia computador = loopback
-http://127.0.0.1:8080
-http://localhost:8080
+**Localhost**
+
+Es la dirección de mi propio computador (http://localhost:8080), también se le conoce como dirección loopback (http://127.0.0.1:8080).
 
 ### Npm y paquetes.
+
 ### Node para front y back end.
+
 ### Arquitectura de software.
+
 ### Stacks de desarrollo web.
+
 ### Asincronía y Event Loop.
+
 ### Comparativa entre Node vs JavaScript.
+
 ### Conceptos de una API.
+
 ### Qué es REST y sus principios.
+
 ### API Rest.
+
 ### ExpressJS.
+
 ### Deploys.
 
-
-
-
-
-
 ## Notas adicionales
+
 ### **Markdown**
 
 Es un [lenguaje de marcado ligero](https://es.wikipedia.org/wiki/Lenguajes_de_marcas_ligeros "Lenguajes de marcas ligeros") creado por [John Gruber](https://en.wikipedia.org/wiki/John_Gruber "en:John Gruber") y [Aaron Swartz](https://es.wikipedia.org/wiki/Aaron_Swartz "Aaron Swartz") que trata de conseguir la máxima legibilidad y facilidad de publicación tanto en su forma de entrada como de salida, se inspira en convenciones existentes para marcar mensajes de correo electrónico usando texto plano.
 
-3
+**Medidas de almacenamiento**
 1024 bytes = 1 megabytes
 1024 megabytes = 1 gygabytes
 1024 gygabites = 1 terabytes
-RAM => Velocidad de ejecicion de tareas
-disco => almacenamiento de informacion
 
 ### Comandos Terminal
+
 El **CMD** es la línea de comandos basada en MS-DOS para windows, mientras que la **terminal** es la línea de comandos
 de unix/lunix (kernels de mac os y algunas distribuciones linux).
 
@@ -186,30 +199,31 @@ git branch -D nombreRama
 
 ```
 
-
-####  Descartar cambios
+#### Descartar cambios
 
 ```
 # Descarta los cambios del stagin y working directory
 git reset --hard
 
-
-```
 # actualiza la cache de git para que tome ciertos cambios (.gitignore)
 git rm --cached . r
 
 # actualiza el mensaje del ultimo commit realizado (no debe estar pusheado)
 git commit --amend -m "an updated commit message"
 
-# stash
+# stash: el codigo de working directory y staging area es eliminado temporalmente
 git stash
 
-# unstash
+# stash: el codigo de working directory y staging area que fue eliminado se recuperar
 git stash pop
+
 ```
 
+
 #### Commits Atómicos
+
 Consiste en realizar un commit por un solo objetivo. Es decir, no mezclar muchas soluciones en el mismo commit.
+
 #### Conventional Commits
 
 Es una especificación sobre como escribir mensajes de confirmación (commits).
@@ -217,11 +231,7 @@ Es una especificación sobre como escribir mensajes de confirmación (commits).
 **Estructura**
 
 ```
-<type>[optional scope]: <description>
-
-[optional body]
-
-[optional footer(s)]
+type
 ```
 
 **Tipos principales**
@@ -232,21 +242,25 @@ Es una especificación sobre como escribir mensajes de confirmación (commits).
 * docs: Commits con documentacion o comentarios.
 * style: Estructura de carpetas y nombrado
 
-[más info](https://www.conventionalcommits.org/en/v1.0.0/)
+[Más info](https://www.conventionalcommits.org/en/v1.0.0/)
 
-#### VSCode como editor de git
+
+**VSCode como editor de git**
 
 ```
 git config --global core.editor"visual studio --wait"
-git commit 
+git commit
 // ir a vscode a escribir el mensaje, una vez escrito guardar y cerrar.
 // regresar a la consola a comprobar el commit
+
 ```
 
 ### Áreas de estudio
 
 #### Arquitectura de software
+
 Modelos de arquitectura, cliente servidor, mvc, eventos, etc.
+
 #### Redes de computadora
 
 Área donde se estudia la comunicación de redes de telecomunicaciones y funcionamiento del internet.
@@ -283,14 +297,13 @@ Entre menos entendemos un producto, tendrá mayores errores.
 * BDD.
 
 #### Herramientas web
-https://www.cual-es-mi-ip.net/
-https://www.toptal.com/developers/gitignore/
-https://docs.opencloud.cl/tutoriales/servidores/lista-de-puertos-mas-comunmente-utilizados.html
-coderunner
-office readme
 
+* https://www.cual-es-mi-ip.net/
+* https://www.toptal.com/developers/gitignore/
+* coderunner
+* office readme.
 
-# Glosario
+### Glosario
 
 - **Sistema operativo:** Es el software que coordina y dirige todos los servicios y aplicaciones que utiliza el usuario en una computadora.
 - **Kernel:** El kernel es el núcleo de un sistema operativo y, por tanto, la interfaz (middleware) entre el software y el hardware.
