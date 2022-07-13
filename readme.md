@@ -231,7 +231,7 @@ Es una especificación sobre como escribir mensajes de confirmación (commits).
 **Estructura**
 
 ```
-type
+[optional scope]: [optional body][optional footer(s)]
 ```
 
 **Tipos principales**
