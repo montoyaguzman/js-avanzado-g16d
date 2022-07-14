@@ -23,19 +23,22 @@ const server = http.createServer((request, response) => {
     // Paso 1: Obtener la path de la request
     const urlObject = url.parse(request.url);
     const path = urlObject.path;
-    console.log(`Path solicitada: `, path);
 
     // Paso 2: Definimos las variables que le vamos a setear a la response
     let status = 0;
     let responseObj = {};
     let fileSytemPath = '';
 
+    // Paso 3: Validamos la existencia de path para concatenarle "static"
     if (path) {
-        fileSytemPath = `static${path}`;
+        fileSytemPath = `static${path}`
     }
+    console.log(`Path solicitada: `, fileSytemPath);
 
+    // Paso 4: Validar si existe la path en el sistema
     fs.stat(fileSytemPath, error => {
         if (!error) {
+            // Paso 5: Leer el archivo multimedia solicitado
             fs.readFile(fileSytemPath, (error, file) => {
                 if (!error) {
                     // fileSytemPath = index.html
@@ -43,10 +46,12 @@ const server = http.createServer((request, response) => {
                     const aux = fileSytemPath.split('.'); // index.html => ['index', 'html']
                     const extension = aux[ aux.length - 1 ];
                     const mimeType = MIME_TYPES[extension]; // MIME_TYPES.html;
+                    // Paso 5.1: Devolver el archivo solicitado
                     response.writeHead(status, { 'Content-Type': mimeType } );
                     response.write(file);
                     response.end();        
                 } else {
+                    // Paso 5.1: Devolver un error si no se puede leer el archivo
                     status = 500;
                     responseObject = { message: 'Internal server error' };
                     response.writeHead(status, { 'Content-Type': MIME_TYPES.json } );
@@ -55,6 +60,8 @@ const server = http.createServer((request, response) => {
                 }
             });
         } else {
+            // Paso 5.1: Devolver un error de lectura del archivo
+            console.log('error:', error)
             status = 404;
             responseObject = { message: 'Not found' };
             response.writeHead(status, { 'Content-Type': MIME_TYPES.json } );
