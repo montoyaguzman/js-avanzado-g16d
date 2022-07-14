@@ -6,6 +6,7 @@ const url = require('url');
 const fs = require('fs');
 const colors = require('colors');
 
+const CONTENT_TYPE = 'Content-Type';
 const MIME_TYPES = {
     html: 'text/html',
     css: 'text/css',
@@ -47,14 +48,14 @@ const server = http.createServer((request, response) => {
                     const extension = aux[ aux.length - 1 ];
                     const mimeType = MIME_TYPES[extension]; // MIME_TYPES.html;
                     // Paso 5.1: Devolver el archivo solicitado
-                    response.writeHead(status, { 'Content-Type': mimeType } );
+                    response.writeHead(status, { [CONTENT_TYPE] : mimeType } );
                     response.write(file);
                     response.end();        
                 } else {
                     // Paso 5.1: Devolver un error si no se puede leer el archivo
                     status = 500;
                     responseObject = { message: 'Internal server error' };
-                    response.writeHead(status, { 'Content-Type': MIME_TYPES.json } );
+                    response.writeHead(status, { [CONTENT_TYPE] : MIME_TYPES.json } );
                     response.write(responseObject);
                     response.end();        
                 }
@@ -64,11 +65,13 @@ const server = http.createServer((request, response) => {
             console.log('error:', error)
             status = 404;
             responseObject = { message: 'Not found' };
-            response.writeHead(status, { 'Content-Type': MIME_TYPES.json } );
+            response.writeHead(status, { [CONTENT_TYPE] : MIME_TYPES.json } );
             response.write(responseObject);
             response.end();
         }
     });
+
+    
 
 });
 
