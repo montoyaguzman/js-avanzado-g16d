@@ -65,7 +65,7 @@ const validandoPago = () => {
     })
 };
 console.log('Presiona el boton comprar'); 
-promiseValidandoPago().then(response => console.log('Tu paquete sera enviado :)') )
+promiseValidandoPagoc().then(response => console.log('Tu paquete sera enviado :)') )
     .then(/*doOtherThing*/)
     .then(/*doOtherThing2*/)
 
