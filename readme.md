@@ -15,29 +15,32 @@
 11. [ExpressJS](#expressjs)
 12. [Deploys](#deploys)
 13. [Notas adicionales](#notas-adicionales)
-14. [Glosario](#glosario)
+14. [Herramientas](#herramientas)
+15. [Glosario](#glosario)
 
 ### Node.
 
-Node es un entorno multiplataforma para ejecutar JavaScript fuera del navegador, tiene su origen en el 2010.
+Node es un entorno multiplataforma para ejecutar JavaScript fuera del navegador, tiene su origen en el 2009 (Ryan Lenhiart).
 Con ayuda de node se puede:
 
-- Recuperar datos de formularios HTML.
+- Realizar API Rest.
+- Acceder a bases de datos relacionales y no relacionales.
 - Generar páginas dinámicas en un servidor web. => server side render
 - Crear, leer y escribir archivos.
 - Procesar y almacenar archivos enviados desde una página web.
-- Realizar API Rest.
-- Acceder a bases de datos relacionales y no relacionales.
 
-Dentro de node se utilizan mucho los módulos y las callbacks.
+Dentro de node se utilizan los módulos y las callbacks.
 
 - **Módulo:** Permiten aislar parte de nuestro código en diferentes archivos y mandarlos llamar sólo cuándo los necesitamos.
 
-Existen dos formas de utilizar módulos en node:
-    - Commun JS.
-    - ES6 Imports.
-
+  Existen dos formas de utilizar módulos en node:
+  - Commun JS.
+  - ES6 Imports.
 - **Callback:** Es una funcion que se pasa como parametro a otra funcion.
+
+**Modelo cliente servidor**
+
+Es un modelo de arquitectura donde mediante ciertos procolos existen la comunicación en internet. Por un lado, el servidor es una aplicación que ofrece un servicio, mientras que un cliente es quien pide el servicio.
 
 **Path**
 
@@ -56,31 +59,314 @@ sistema de archivos.
 ../../
 ```
 
+**Mime Types**
+Los mime types indican la naturaleza y formato de los archivos que son transmitidos en la respuesta de una solicitud web.
+
+- json: 'application/json'.
+- text: 'text/plain'.
+- html: 'text/html'.
+- css: 'text/css'.
+- jpg: 'image/jpg'.
+- ico: 'image/x-icon'.
+- mp3: 'audio/mpeg3'.
+- mp4: 'video/mp4'.
+
+Para ver el listado completo [consulte](https://docs.w3cub.com/http/basics_of_http/mime_types/complete_list_of_mime_types.html).
+
 **Localhost**
 
 Es la dirección de mi propio computador (http://localhost:8080), también se le conoce como dirección loopback (http://127.0.0.1:8080).
 
 ### Npm y paquetes.
 
+Node package manager es un manejador de paquetes de node y gestor de dependencias de proyectos npm. Se compone de:
+
+* Un repositorio de paquetes.
+* Un CLI para interactuar con el repo y el proyecto.
+
+#### **Paquetes**
+
+Son módulos distribuidos en forma de librerías que resuelven alguna necesidad de desarrollo.
+
+#### **Scripts**
+
+Son comandos propios que se pueden agregar al package.json para poderlos ejercutar.
+
+Estructura de un proyecto npm
+
+* **node_modules:** Carpeta donde se instalan las dependencias, normalmente está carpeta se agrega al .gitignore.
+* **package.json:** Guardan las dependencias y los comandos de node.
+* **package-lock.json:** Guarda un snapshot de las dependencias que se instalaron en un determinado momento.
+
+#### **Listado de comandos npm**
+
+```
+
+# inicializar un proyecto
+npm init
+
+# instalar un paquete global
+npm install -g packageName
+
+# instalar todos las dependencias de un proyecto
+npm i
+
+# instalar un nuevo paquete sin agregarlo al package.json
+npm install packageName
+
+# instalar un nuevo paquete y agregarlo al package.json
+npm install packageName --save
+
+# instalar un paquete como dev dependency
+npm install -D packageName
+
+# desinstalar un paquete
+npm uninstall packageName
+
+# desintalar un paquete global
+npm uninstall -g packageName
+
+# ejecutar comandos custom
+npm run myCommand
+
+```
+
+#### Tipos de licencias de software
+
+* MIT.
+* ISC.
+
+#### Otros gestores de dependencias
+
+* Maven.
+* Bower.
+* Gradlew.
+* Yarn.
+
 ### Node para front y back end.
+
+A continuación se presenta un listado de los framework front y back mas populares de nodeJS.
+
+#### **Frameworks back end**
+
+* ExpressJS.
+* Hapi.
+* Koa.
+* Fastify.
+
+#### **Frameworks front end**
+
+* Gatsby.
+* EJS.
+* Nuxt.
+* Next.
+
+#### **Semantic Versión**
+
+Es un conjunto simple de reglas y requerimientos que dictan cómo asignar e incrementar los números de la versión de un software. Evitan la pérdida de versiones y mejoran la gestión de dependencias.
+
+Dado un número de versión MAJOR.MINOR.PATCH, se incrementa:
+
+* La versión MAJOR cuando realizas un cambio incompatible en el proyecto.
+* La versión MINOR cuando añades funcionalidad que compatible con versiones anteriores.
+* La versión PATCH cuando reparas errores compatibles con versiones anteriores.
 
 ### Arquitectura de software.
 
+Es la estructura y forma en que los componentes de software o hardware se distribuyen y relacionan en el stack.
+
+**Arquitecturas comunes**
+
+* Cliente servidor.
+* De tres niveles.
+* Model View Controller: MVC.
+* Dirigida por eventos.
+* Microservicios.
+* Serverless.
+
 ### Stacks de desarrollo web.
+
+Un **stack** es el conjunto de tecnologías utilizadas para construir una aplicación.
+
+#### **Stacks populares**
+
+* LAMP.
+* ASP.NET.
+* MEAN.
+* MERN.
+* MEVN.
+
+**Web components**
+Encapsular funcionalidad en elementos especificos que sean reutilizables.
+
+**Custom tag**
+El nombre de la tag utilizada para un webcomponent. Ejemplos:
+
+* `<my-menu>`
+* `<Mymenu>`
+
+#### Lenguajes de programación
+
+* Java.
+* JavaScript.
+* Php.
+* Python.
+* Go.
+
+#### Gestores de BD (SQL)
+
+* SQL.
+* Postgres.
+* Oracle.
+* MSSQLServer.
+* MariaDB.
+* MySQLalg.
+
+#### Gestores de BD (No SQL)
+
+* Mongo.
+* DynamoDB.
+* Firebase.
+* Elasticsearchalg.
+
+#### Servicios de cloud
+
+* Azure.
+* AWS.
+* Google Cloud.
 
 ### Asincronía y Event Loop.
 
-### Comparativa entre Node vs JavaScript.
+#### **Código síncrono**
+
+Es aquel código donde cada instrucción espera a la anterior para ejecutarse. Es código no bloqueante que se ejecuta en orden línea a línea.
+
+#### **Código asíncrono**
+
+Es aquel que tiene instrucciones bloqueantes, que debe diferir, dichas instrucciones no son esperadas y se continúa la ejecución. Entiéndase por instrucción diferida cualquier cosa que implique un retraso (por dependencia).
+
+**Ejemplo de operaciones asíncronas**
+
+* Consulta una API.
+* Crear archivos.
+* Acceso a BD.
+
+#### **Formas de manejar la asíncronia**
+
+- **Callbacks:** Consiste en pasar una función como parámetro y ejecutarla en el momento que lo necesitemos.
+- **Promesas:** Se envuelve el código asincrono en el objecto **new Promise**.  Se basan en 3 estados: cuándo se lanza la petición (pending) y sus posibles respuestas (resolve y reject).
+- **Async await (ES6):** Función con la sugar syntaxis de es6 y simula que el código es asíncrono (por detrás sigue siendo una promesa).
+
+### Comparativa entre Node vs JavaScript
+
+* Ambos se basan en 0 retraso.
+* No hay temporizador (setTimeout y setInterval).
+* No hay manejo de eventos (eventListener).
+* No hay solicitudes Ajax (consumo de API’s).
+* Navegadores usan Libevent.
+* Node usa Libuv.
 
 ### Conceptos de una API.
 
+Application Programming Interface son mecanismos que permiten a dos componentes de software comunicarse entre sí mediante un conjunto de definiciones y protocolos. Comúnmente el formato de intercambio de datos utilizados es JSON o XML.
+
+#### Conceptos de una API
+
+* **Client:** Es quien realiza la petición.
+* **Request:** Petición http conformada por url, params, payload.
+* **Url:** Dirección de internet.
+* **Payload:** Información que va en el body de la request.
+* **Método o verbo:** Es la acción (GET, POST, PUT, PATCH y DELETE) con la que se accede a un endpoint.
+* **Recurso:** Es el endpoint al que llegamos en la API.
+* **Response:** Respuesta de la API.
+* **Server:** Es quien responde la petición.
+
+#### **Listado de protocolos**
+
+* TCP/IP.
+* HTTP.
+* HTTPS.
+* FTP.
+* SMTP.
+* IMAP.
+* POP.
+* SSL.
+* TLS.
+
+[Listado completo de puertos](https://docs.opencloud.cl/tutoriales/servidores/lista-de-puertos-mas-comunmente)
+
+#### **Listado de status**
+
+**100 Information**
+
+* 100 Continue
+
+**200 Success**
+
+* 200 OK
+* 201 Created
+* 202 Accepted
+* 204 No content
+
+**300 Redirección**
+
+* 304 Not modified
+
+**400 Client Errors**
+
+* 400 Bad request
+* 401 Unauthorized
+* 403 Forbidden
+* 404 Not found
+* 405 Not allowed method
+* 408 Request timeout
+* 409 Conflict
+
+**500 Server Errors**
+
+* 500 Internal server error
+* 501 Not implemented
+* 503 Service unavailable
+* 504 Gate timeout
+
+[Listado completo de estatus http.](https://developer.mozilla.org/es/docs/Web/HTTP/Status)
+
 ### Qué es REST y sus principios.
+
+Es una “evolución” de SOAP (servicios web). REST es una interfaz para conectar varios sistemas.
 
 ### API Rest.
 
+Es una serie de principios que las API siguen para “volverse” API REST, cuándo cumplen todos los principios, se les conoce como API Restful.
+
+* Client.
+* Request.
+* Contrato.
+* Response.
+* Server.
+
+#### **Contrato de un API**
+
+Es un conjunto de acuerdos entre cliente y servidor para establecer la comunicación.
+
+* Interfaz.
+* Método.
+* Body y parametros (si aplican).
+* Estatus de respuesta.
+* Formato de intercambio de datos.
+
 ### ExpressJS.
 
+[Documentation](https://expressjs.com/es/starter/installing.html).
+
 ### Deploys.
+
+* Heroku.
+* Google App Engine.
+* Back4App.
+* Linode.
+* Digital Ocean.
+* Aws.
 
 ## Notas adicionales
 
@@ -95,8 +381,9 @@ Es un [lenguaje de marcado ligero](https://es.wikipedia.org/wiki/Lenguajes_de_ma
 
 ### Comandos Terminal
 
-El **CMD** es la línea de comandos basada en MS-DOS para windows, mientras que la **terminal** es la línea de comandos
-de unix/lunix (kernels de mac os y algunas distribuciones linux).
+El **CMD** es la línea de comandos basada en MS-DOS para windows, mientras que la **terminal** es la línea de comandos de unix/lunix (kernel de mac os y algunas distribuciones linux).
+
+Listado de comando
 
 ```
 # imprime el path en el que se encuentra
@@ -105,13 +392,13 @@ pwd
 # moverse entre carpetas
 cd
 
-# listar carpetas y archivos que hay en la carpeta actual
+# listar carpetas y archivos que hay en el directorio actual
 ls
 
 # crear carpetas
 mkdir newFolder
 
-# creat archivos
+# crear archivos
 touch nameFile.txt
 
 # eliminar carpetas
@@ -125,100 +412,10 @@ ping www.google.com
 
 # limpiar la pantalla
 clear
+
 ```
 
 ### Comandos Git
-
-#### Información del repo
-
-```
-# ver estado del working directory y staging area
-git status
-
-# ver historial de commits
-git log --oneline
-```
-
-#### Hacer un commit
-
-```
-# agregar al staging area
-git add .
-
-# quitar del staging area
-git restore --staged namefile.txt
-
-# commits
-git commit -m "tipoCommit: mi mensaje"
-
-```
-
-#### Remoto
-
-```
-# ver los repos remotos a los que esta conectado el repo local
-git remote -v
-
-# bajar cambios
-git pull origin rama
-
-# subir cambios
-git push origin rama
-
-# obtener los cambios de una rama remota y cambiarse a esa rama
-git fetch && git checkout develop
-
-#  bajar cambios de una rama remota a una local (cuando ya existe)
-git pull origin develop
-
-# subir cambios
-git push origin develop
-
-```
-
-#### Administración de ramas
-
-```
-# ver rama en la que se encuentra el head
-git branch 
-
-# crea una rama nueva
-git branch nombreNuevaRama 
-
-# cambiarse a una rama con el nombre nombreRama
-git checkout nombreRama
-
-# crear y cambiarse a una nueva rama
-git checkout -b nombreNuevaRama
-
-# crear y cambiarse a una nueva rama
-git switch -c nombreNuevaRama 
-
-# eliminar una rama
-git branch -D nombreRama
-
-```
-
-#### Descartar cambios
-
-```
-# Descarta los cambios del stagin y working directory
-git reset --hard
-
-# actualiza la cache de git para que tome ciertos cambios (.gitignore)
-git rm --cached . r
-
-# actualiza el mensaje del ultimo commit realizado (no debe estar pusheado)
-git commit --amend -m "an updated commit message"
-
-# stash: el codigo de working directory y staging area es eliminado temporalmente
-git stash
-
-# stash: el codigo de working directory y staging area que fue eliminado se recuperar
-git stash pop
-
-```
-
 
 #### Commits Atómicos
 
@@ -240,12 +437,101 @@ Es una especificación sobre como escribir mensajes de confirmación (commits).
 * chore: Cosas que no aportan un req funcional pero posiblemente si un req no funcional.
 * fix: Correccion de errores.
 * docs: Commits con documentacion o comentarios.
-* style: Estructura de carpetas y nombrado
+* style: Estructura de carpetas y nombrado.
+
+#### Información del repo
+
+```
+# ver estado del working directory y staging area
+git status
+
+# ver historial de commits
+git log --oneline
+```
+
+#### Hacer un commit
+
+```
+# agregar al staging area
+git add .
+
+# quitar del staging area
+git restore --staged namefile.txt
+
+# hacer un commit al repo local
+git commit -m "conventionalCommitScope: mi mensaje"
+
+```
+
+#### Remoto
+
+```
+# ver los repos remotos a los que esta conectado el repo local
+git remote -v
+
+# bajar cambios
+git pull origin branchName
+
+# subir cambios
+git push origin branchName
+
+# subir cambios de una rama nueva para el remoto
+git push -u origin branchName
+
+# obtener los cambios de una rama remota y cambiarse a esa rama
+git fetch && git checkout develop
+
+#  bajar cambios de una rama remota a una local (cuando ya existe)
+git pull origin branchName
+
+```
+
+#### Administración de ramas
+
+```
+# ver rama en la que se encuentra el head
+git branch 
+
+# crea una rama nueva
+git branch newBranchName 
+
+# cambiarse a una rama con el nombre nombreRama
+git checkout branchName
+
+# crear y cambiarse a una nueva rama
+git checkout -b newBranchName
+
+# crear y cambiarse a una nueva rama
+git switch -c newBranchName 
+
+# eliminar una rama
+git branch -D branchName
+
+```
+
+#### Otros comandos útiles
+
+```
+# Descarta los cambios del stagin y working directory
+git reset --hard
+
+# actualiza la cache de git para que tome ciertos cambios (.gitignore)
+git rm --cached . r
+
+# actualiza el mensaje del ultimo commit realizado (no debe estar pusheado)
+git commit --amend -m "an updated commit message"
+
+# stash: el codigo de working directory y staging area es eliminado temporalmente
+git stash
+
+# stash: el codigo de working directory y staging area que fue eliminado se recuperar
+git stash pop
+
+```
 
 [Más info](https://www.conventionalcommits.org/en/v1.0.0/)
 
-
-**VSCode como editor de git**
+#### **VSCode como editor de git**
 
 ```
 git config --global core.editor"visual studio --wait"
@@ -296,12 +582,32 @@ Entre menos entendemos un producto, tendrá mayores errores.
 * TDD.
 * BDD.
 
-#### Herramientas web
+#### Arquitectura de computadoras
 
-* https://www.cual-es-mi-ip.net/
-* https://www.toptal.com/developers/gitignore/
-* coderunner
-* office readme.
+Área de estudio de la arquitectura física de las computadoras.
+
+#### SysAdmin
+
+Working...
+
+#### DevOps
+
+Working...
+
+#### Machine Learning
+
+Working...
+
+#### Big Data
+
+Working...
+
+### Herramientas
+
+* [Ip Pública](https://www.cual-es-mi-ip.net/).
+* [Gitignore.io](https://www.toptal.com/developers/gitignore/).
+* [Coder Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner).
+* [Office Viewer(Markdown Editor)](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office).
 
 ### Glosario
 
@@ -315,7 +621,7 @@ Entre menos entendemos un producto, tendrá mayores errores.
 - **Request:** Es una solicitud de información.
 - **Response:** Es la entrega de información de un servidor a un cliente.
 - **Servidor:** Es una instancia fisica o lógica que responde peticiones (request).
-- **Estandar:** Es un patrón o modelo a seguir, generalmente derivado de un documento o certificación.
+- **Estándar:** Es un patrón o modelo a seguir, generalmente derivado de un documento o certificación.
 - **Buena práctica:** Es un actividad que se ha demostrado que funciona bien y produce buenos resultados, y, por lo tanto, se recomienda como modelo.
 - **Path:** Es una ruta o dirección donde se encuentra alojado un recurso en un sistema de archivos. Existen rutas relativas como ../../my-docs o absolutas como C:\users\juan\Documents\tarea\tesis.doc
 - **Puerto:** un lugar donde se abre una conexion para acceder a un servicio.
