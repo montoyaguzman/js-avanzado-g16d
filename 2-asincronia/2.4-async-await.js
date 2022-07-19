@@ -13,7 +13,7 @@ const promiseValidandoPago = () => {
             // Este setTimeout representa una operacion que depende de otra entidad
             // en este caso simulas esa dependencia con tiempo
             console.log('2 Revisando con el banco y mostrando un loader...');
-            reject(new Error('Este es mi custom error'));
+            resolve();
             // if (status === 200) {
             //     resolve();
             // } else {
