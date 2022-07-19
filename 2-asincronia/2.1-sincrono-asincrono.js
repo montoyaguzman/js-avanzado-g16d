@@ -15,10 +15,10 @@
      // Este setTimeout representa una operacion que depende de otra entidad
      // en este caso simulas esa dependencia con tiempo
      setTimeout(() => {
-         console.log('Revisando con el banco y mostrando un loader...');
+         console.log('2 Revisando con el banco y mostrando un loader...');
      }, 0);
  };
  
- console.log('Presiona el boton comprar'); 
+ console.log('1 Presiona el boton comprar'); 
  validandoPago();
- console.log('Tu paquete sera enviado :) ');
+ console.log('3 Tu paquete sera enviado :) ');

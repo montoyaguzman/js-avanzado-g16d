@@ -9,17 +9,22 @@ console.log('============== BLOQUE 4 ==============');
         setTimeout(() => {
             // Este setTimeout representa una operacion que depende de otra entidad
             // en este caso simulas esa dependencia con tiempo
-            console.log('Revisando con el banco y mostrando un loader...');
+            console.log('2 Revisando con el banco y mostrando un loader...');
             resolve();
-            // if (validandoPago()) {
+            // if (status === 200) {
             //     resolve();
             // } else {
-            //     reject();
+            //     reject(new Error('Este es mi custom error'));
             // }
         }, 0);
     })
 };
-console.log('Presiona el boton comprar'); 
-promiseValidandoPago().then(response => console.log('Tu paquete sera enviado :)') )
-    .then(/*doOtherThing*/)
-    .then(/*doOtherThing2*/)
+
+console.log('1 Presiona el boton comprar'); 
+promiseValidandoPago().then(response => console.log('3 Tu paquete sera enviado :)') )
+    .then(() => console.log('4 Gracias por tu compra'))
+    .then(() => console.log('5 Avisando al proveedor'))
+    .catch((error) => {
+        console.log('Mostrando un modal con el error: ', error);
+    })
+    .finally(() => console.log('==== FINAL (cerrando loader) ===='))
