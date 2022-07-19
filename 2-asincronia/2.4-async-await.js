@@ -6,20 +6,6 @@
 //     return 44;
 // }
 
-// const promiseValidandoPago = async () => {
-//     // El codigo asincrono de validandoPago debe quedar dentro de la promise
-//     setTimeout(() => {
-//         // Este setTimeout representa una operacion que depende de otra entidad
-//         // en este caso simulas esa dependencia con tiempo
-//         console.log('2 Revisando con el banco y mostrando un loader...');
-
-//         // if (status === 200) {
-//         //     resolve();
-//         // } else {
-//         //     reject(new Error('Este es mi custom error'));
-//         // }
-//     })
-// }
 const promiseValidandoPago = () => {
     return new Promise((resolve, reject) => {
         // El codigo asincrono de validandoPago debe quedar dentro de la promise
@@ -27,7 +13,7 @@ const promiseValidandoPago = () => {
             // Este setTimeout representa una operacion que depende de otra entidad
             // en este caso simulas esa dependencia con tiempo
             console.log('2 Revisando con el banco y mostrando un loader...');
-            resolve('todo gucci!!');
+            reject(new Error('Este es mi custom error'));
             // if (status === 200) {
             //     resolve();
             // } else {
@@ -38,9 +24,16 @@ const promiseValidandoPago = () => {
 };
 
 async function main() {
-    console.log('1 Presiona el boton comprar'); 
-    const aux = await promiseValidandoPago();
-    console.log(aux);
+    console.log('1 Presiona el boton comprar');     
+    try {
+        await promiseValidandoPago();
+        // await promiseValidandoPago();
+        // await promiseValidandoPago();
+        // await promiseValidandoPago();
+    } catch (error) {
+        console.log('error:', error);
+    }
+
     console.log('3 Tu paquete sera enviado :)');
 }
 
