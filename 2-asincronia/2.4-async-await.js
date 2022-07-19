@@ -1,27 +1,31 @@
 /**
- * BLOQUE 4: Promesas (pending, resolve, reject)
+ * BLOQUE 5: Async await (ES8 - 2017)
  */
-console.log('============== BLOQUE 4 ==============');
-const validandoPago = () => {
-    setTimeout(() => {
-        console.log('Revisando con el banco y mostrando un loader...');
-    }, 0);
+
+// async function promiseValidandoPago() {
+//     return 44;
+// }
+
+const promiseValidandoPago = async () => {
+    // El codigo asincrono de validandoPago debe quedar dentro de la promise
+    // setTimeout(() => {
+    //     // Este setTimeout representa una operacion que depende de otra entidad
+    //     // en este caso simulas esa dependencia con tiempo
+    //     console.log('2 Revisando con el banco y mostrando un loader...');
+    //     // if (status === 200) {
+    //     //     resolve();
+    //     // } else {
+    //     //     reject(new Error('Este es mi custom error'));
+    //     // }
+    // })
+    await console.log('2 Revisando con el banco y mostrando un loader...');
 }
 
- const promiseValidandoPago = () => {
-    return new Promise((resolve, reject) => {
-        // Este setTimeout representa una operacion que depende de otra entidad
-        // en este caso simulas esa dependencia con tiempo
-        validandoPago();
-        resolve();
-        // if (validandoPago()) {
-        //     resolve();
-        // } else {
-        //     reject();
-        // }
+console.log('1 Presiona el boton comprar'); 
+promiseValidandoPago().then(() => console.log('3 Tu paquete sera enviado :)') )
+    .then(() => console.log('4 Gracias por tu compra'))
+    .then(() => console.log('5 Avisando al proveedor'))
+    .catch((error) => {
+        console.log('Mostrando un modal con el error: ', error);
     })
-};
-console.log('Presiona el boton comprar'); 
-promiseValidandoPago().then(response => console.log('Tu paquete sera enviado :)') )
-    .then(/*doOtherThing*/)
-    .then(/*doOtherThing2*/)
+    .finally(() => console.log('==== FINAL (cerrando loader) ===='))
