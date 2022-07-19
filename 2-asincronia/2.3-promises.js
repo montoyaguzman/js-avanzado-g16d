@@ -10,7 +10,7 @@ console.log('============== BLOQUE 4 ==============');
             // Este setTimeout representa una operacion que depende de otra entidad
             // en este caso simulas esa dependencia con tiempo
             console.log('2 Revisando con el banco y mostrando un loader...');
-            resolve();
+            resolve('todo gucci!!');
             // if (status === 200) {
             //     resolve();
             // } else {
@@ -21,7 +21,7 @@ console.log('============== BLOQUE 4 ==============');
 };
 
 console.log('1 Presiona el boton comprar'); 
-promiseValidandoPago().then(response => console.log('3 Tu paquete sera enviado :)') )
+promiseValidandoPago().then(response => console.log('3 Tu paquete sera enviado :)' + response) )
     .then(() => console.log('4 Gracias por tu compra'))
     .then(() => console.log('5 Avisando al proveedor'))
     .catch((error) => {
