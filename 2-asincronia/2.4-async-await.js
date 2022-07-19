@@ -26,14 +26,14 @@ const promiseValidandoPago = () => {
 async function main() {
     console.log('1 Presiona el boton comprar');     
     try {
+        // lineas donde el codigo puede fallar
         await promiseValidandoPago();
-        // await promiseValidandoPago();
-        // await promiseValidandoPago();
-        // await promiseValidandoPago();
+        // const response = await promiseValidandoPago2();
+        // await promiseValidandoPago3();
+        // await promiseValidandoPago4();
     } catch (error) {
         console.log('error:', error);
     }
-
     console.log('3 Tu paquete sera enviado :)');
 }
 
