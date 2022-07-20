@@ -49,3 +49,31 @@ app.post('/shoes', (req, res) => {
     const response = { message: 'shoe created!'};
     res.status(201).json(response);
 });
+
+// PARTIAL EDITION: PATCH
+app.patch('/shoes/:id', () => {
+    const body = req.body;
+    const { id } = req.params;
+    const indexFounded = shoes.findIndex(shoe => shoe.id === id);
+    if (indexFounded !== -1) {
+        const shoeCopy = { ...shoes[indexFounded] };
+        shoes[indexFounded] = { ...shoeCopy, ...body };
+        res.json({ message: 'modified with success!', body });
+    } else {
+        res.send('ese id no existe');
+    }
+});
+
+// COMPLETE EDITION: PUT
+app.put('/shoes/:id', () => {
+    const body = req.body;
+    const { id } = req.params;
+    const indexFounded = shoes.findIndex(shoe => shoe.id === id);
+    if (indexFounded !== -1) {
+        const shoeCopy = { ...shoes[indexFounded] };
+        shoes[indexFounded] = { ...shoeCopy, ...body };
+        res.json({ message: 'modified with success!', body });
+    } else {
+        res.send('ese id no existe');
+    }
+});
