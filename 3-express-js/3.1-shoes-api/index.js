@@ -51,7 +51,7 @@ app.post('/shoes', (req, res) => {
 });
 
 // PARTIAL EDITION: PATCH
-app.patch('/shoes/:id', () => {
+app.patch('/shoes/:id', (req, res) => {
     const body = req.body;
     const { id } = req.params;
     const indexFounded = shoes.findIndex(shoe => shoe.id === id);
@@ -65,7 +65,7 @@ app.patch('/shoes/:id', () => {
 });
 
 // COMPLETE EDITION: PUT
-app.put('/shoes/:id', () => {
+app.put('/shoes/:id', (req, res) => {
     const body = req.body;
     const { id } = req.params;
     const indexFounded = shoes.findIndex(shoe => shoe.id === id);
