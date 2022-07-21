@@ -28,13 +28,13 @@ async function main() {
     try {
         // lineas donde el codigo puede fallar
         await promiseValidandoPago();
+        console.log('3 Tu paquete sera enviado :)');
         // const response = await promiseValidandoPago2();
         // await promiseValidandoPago3();
         // await promiseValidandoPago4();
     } catch (error) {
         console.log('error:', error);
     }
-    console.log('3 Tu paquete sera enviado :)');
 }
 
 main();

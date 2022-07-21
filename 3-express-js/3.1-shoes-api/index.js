@@ -58,6 +58,7 @@ app.patch('/shoes/:id', (req, res) => {
     if (indexFounded !== -1) {
         const shoeCopy = { ...shoes[indexFounded] };
         shoes[indexFounded] = { ...shoeCopy, ...body };
+        console.log(shoes);
         res.json({ message: 'modified with success!', body });
     } else {
         res.send('ese id no existe');
@@ -72,8 +73,28 @@ app.put('/shoes/:id', (req, res) => {
     if (indexFounded !== -1) {
         const shoeCopy = { ...shoes[indexFounded] };
         shoes[indexFounded] = { ...shoeCopy, ...body };
+        console.log(shoes);
         res.json({ message: 'modified with success!', body });
     } else {
         res.send('ese id no existe');
     }
 });
+
+// DELETE: DELETE
+app.delete('/shoes/:id', (req, res) => {
+    const { id } = req.params;
+    const indexFounded = shoes.findIndex(shoe => shoe.id === parseInt(id));
+    if (indexFounded !== -1) {
+        const shoesCopy = [ ...shoes ];
+        shoesCopy.splice(indexFounded, 1);
+        shoes = [ ...shoesCopy ];
+        console.log('shoes:', shoes);
+        res.json({ message: 'eliminado!', id });
+    } else {
+        res.send('ese id no existe');
+    }
+});
+
+/**
+ * Crear copias para modificiar los valores originales => INMUTABILIDAD
+*/
