@@ -54,7 +54,7 @@ app.post('/shoes', (req, res) => {
 app.patch('/shoes/:id', (req, res) => {
     const body = req.body;
     const { id } = req.params;
-    const indexFounded = shoes.findIndex(shoe => shoe.id === id);
+    const indexFounded = shoes.findIndex(shoe => shoe.id === parseInt(id));
     if (indexFounded !== -1) {
         const shoeCopy = { ...shoes[indexFounded] };
         shoes[indexFounded] = { ...shoeCopy, ...body };
@@ -68,7 +68,7 @@ app.patch('/shoes/:id', (req, res) => {
 app.put('/shoes/:id', (req, res) => {
     const body = req.body;
     const { id } = req.params;
-    const indexFounded = shoes.findIndex(shoe => shoe.id === id);
+    const indexFounded = shoes.findIndex(shoe => shoe.id === parseInt(id));
     if (indexFounded !== -1) {
         const shoeCopy = { ...shoes[indexFounded] };
         shoes[indexFounded] = { ...shoeCopy, ...body };
