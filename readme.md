@@ -34,6 +34,7 @@ Dentro de node se utilizan los módulos y las callbacks.
 - **Módulo:** Permiten aislar parte de nuestro código en diferentes archivos y mandarlos llamar sólo cuándo los necesitamos.
 
   Existen dos formas de utilizar módulos en node:
+
   - Commun JS.
   - ES6 Imports.
 - **Callback:** Es una funcion que se pasa como parametro a otra funcion.
@@ -239,11 +240,16 @@ El nombre de la tag utilizada para un webcomponent. Ejemplos:
 
 #### **Código síncrono**
 
-Es aquel código donde cada instrucción espera a la anterior para ejecutarse. Es código no bloqueante que se ejecuta en orden línea a línea.
+Es aquel código donde cada instrucción se ejecuta en orden, línea a línea. Es código no depende de nadie y el event loop lo puede procesar sin detenerse.
 
 #### **Código asíncrono**
 
-Es aquel que tiene instrucciones bloqueantes, que debe diferir, dichas instrucciones no son esperadas y se continúa la ejecución. Entiéndase por instrucción diferida cualquier cosa que implique un retraso (por dependencia).
+Es aquel que tiene instrucciones que depende de algo externo (una api, una BD, escritura de archivos, etc). El event loop no se bloquea con este código y lo manda a formar a la fila de la web api y queue. Cuando el event loop esta libre, empieza a leer la cola de pendientes.
+
+#### **Flujo de ejecución** 
+
+Cuando el event loop difiere el código y lo pone en espera, puede causar afectación en el flujo lógico de nuestro código, por ello es importante controlar ese flujo (asincronia) mediante callbacks, promises o async await (esta sintaxis luce como codigo sincrono).
+
 
 **Ejemplo de operaciones asíncronas**
 
