@@ -1,13 +1,6 @@
+
 const express = require('express');
-const colors = require('colors');
-const app = express();
-const port = 3000;
-
-app.use(express.json());
-
-app.listen(port, () => {
-    console.log('Servidor express listening...'.rainbow);
-});
+const shoesRouter = express.Router();
 
 let shoes = [
     { id: 1, brand: 'noke', price: 200, size: 29 },
@@ -15,16 +8,12 @@ let shoes = [
     { id: 3, brand: 'floxi', price: 900, size: 25 },
 ];
 
-app.get('/', (req, res) => {
-    res.send('hola mundo!');
-});
-
 // http://localhost:3000/shoes/
 // Query Params: Filtrar información
 // http://localhost:3000/shoes/?page=1&pageSize=10&brand=%22noke%22
 // %20 => espacio en blanco
 // %22 => comillas dobles
-app.get('/shoes', (req, res) => {
+shoesRouter.get('/', (req, res) => {
     const { page, pageSize, brand } = req.query;
     if (page && pageSize && brand) {
         res.json({ page, pageSize, brand });
@@ -34,7 +23,7 @@ app.get('/shoes', (req, res) => {
 
 // Request Param: Son utilizados para ejecutar operaciones sobre un elemento especifico
 // http://localhost:3000/shoes/999
-app.get('/shoes/:id', (req, res) => {
+shoesRouter.get('/:id', (req, res) => {
     const { id } = req.params;
     const shoe = { id: 1, brand: 'noke', price: 200, size: 29, searching: id };
     res.json(shoe);
@@ -42,7 +31,7 @@ app.get('/shoes/:id', (req, res) => {
 
 // http://localhost:3000/shoes/
 // { id: 4, brand: 'pima', price: 600, size: 26 }
-app.post('/shoes', (req, res) => {
+shoesRouter.post('/', (req, res) => {
     const newShoe = req.body;
     shoes.push(newShoe);
     console.log(shoes);
@@ -51,7 +40,7 @@ app.post('/shoes', (req, res) => {
 });
 
 // PARTIAL EDITION: PATCH
-app.patch('/shoes/:id', (req, res) => {
+shoesRouter.patch('/:id', (req, res) => {
     const body = req.body;
     const { id } = req.params;
     const indexFounded = shoes.findIndex(shoe => shoe.id === parseInt(id));
@@ -66,7 +55,7 @@ app.patch('/shoes/:id', (req, res) => {
 });
 
 // COMPLETE EDITION: PUT
-app.put('/shoes/:id', (req, res) => {
+shoesRouter.put('/:id', (req, res) => {
     const body = req.body;
     const { id } = req.params;
     const indexFounded = shoes.findIndex(shoe => shoe.id === parseInt(id));
@@ -81,7 +70,7 @@ app.put('/shoes/:id', (req, res) => {
 });
 
 // DELETE: DELETE
-app.delete('/shoes/:id', (req, res) => {
+shoesRouter.delete('/:id', (req, res) => {
     const { id } = req.params;
     const indexFounded = shoes.findIndex(shoe => shoe.id === parseInt(id));
     if (indexFounded !== -1) {
@@ -95,6 +84,4 @@ app.delete('/shoes/:id', (req, res) => {
     }
 });
 
-/**
- * Crear copias para modificiar los valores originales => INMUTABILIDAD
-*/
+module.exports = shoesRouter;
