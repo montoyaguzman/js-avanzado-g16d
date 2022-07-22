@@ -1,24 +1,30 @@
 
+/**
+ * Capa route, utilizada para el mapeo de los path
+ */
 const express = require('express');
 const shoesRouter = express.Router();
+const ShoesServices = require('../../services/shoes/');
 
-let shoes = [
-    { id: 1, brand: 'noke', price: 200, size: 29 },
-    { id: 2, brand: 'edidas', price: 500, size: 22 },
-    { id: 3, brand: 'floxi', price: 900, size: 25 },
-];
+const shoeService = new ShoesServices();
 
 // http://localhost:3000/shoes/
 // Query Params: Filtrar información
 // http://localhost:3000/shoes/?page=1&pageSize=10&brand=%22noke%22
 // %20 => espacio en blanco
 // %22 => comillas dobles
-shoesRouter.get('/', (req, res) => {
-    const { page, pageSize, brand } = req.query;
-    if (page && pageSize && brand) {
-        res.json({ page, pageSize, brand });
-    } 
-    res.json(shoes);
+shoesRouter.get('/', async (req, res) => {
+    // 6.1.1: Leer la request
+    const { price } = req.query;
+    try {
+        // 6.1.2: Acceder a la capa service para tener una respuesta
+        const shoes = await shoeService.findAll(price);
+        res.status(200).json(shoes);
+    } catch(error) {
+        // 6.1.3: Si hay un error al acceder al services respondemos un error generico
+        res.status(404).json( { message: 'no hay datos'} );
+    }
+    
 });
 
 // Request Param: Son utilizados para ejecutar operaciones sobre un elemento especifico
@@ -31,12 +37,17 @@ shoesRouter.get('/:id', (req, res) => {
 
 // http://localhost:3000/shoes/
 // { id: 4, brand: 'pima', price: 600, size: 26 }
-shoesRouter.post('/', (req, res) => {
+shoesRouter.post('/', async (req, res) => {
+    // 6.1.1: Leer la request
     const newShoe = req.body;
-    shoes.push(newShoe);
-    console.log(shoes);
-    const response = { message: 'shoe created!'};
-    res.status(201).json(response);
+    try {
+        // 6.1.2: Acceder a la capa service para tener una respuesta
+        await shoeService.create(newShoe);
+        res.status(201).send();
+    } catch(error) {
+        // 6.1.3: Si hay un error al acceder al services respondemos un error generico
+        res.status(500).send( { message: 'intenten más tarde' } );
+    }
 });
 
 // PARTIAL EDITION: PATCH
