@@ -246,10 +246,9 @@ Es aquel código donde cada instrucción se ejecuta en orden, línea a línea. E
 
 Es aquel que tiene instrucciones que depende de algo externo (una api, una BD, escritura de archivos, etc). El event loop no se bloquea con este código y lo manda a formar a la fila de la web api y queue. Cuando el event loop esta libre, empieza a leer la cola de pendientes.
 
-#### **Flujo de ejecución** 
+#### **Flujo de ejecución**
 
 Cuando el event loop difiere el código y lo pone en espera, puede causar afectación en el flujo lógico de nuestro código, por ello es importante controlar ese flujo (asincronia) mediante callbacks, promises o async await (esta sintaxis luce como codigo sincrono).
-
 
 **Ejemplo de operaciones asíncronas**
 
@@ -364,6 +363,15 @@ Es un conjunto de acuerdos entre cliente y servidor para establecer la comunicac
 ### ExpressJS.
 
 [Documentation](https://expressjs.com/es/starter/installing.html).
+
+**Nombrado de constantes**
+
+1. Si la constante es un valor fijo para comparar (if) o mostrar en pantalla
+   debe ir en mayuscula.
+   MXN, USD, PI, MAX_SIZE
+2. Si la constante guarda un valor logico q se utiliza pero no muta ni trampoco
+   es visible o comparable se debe declarar en minuscula.
+   port
 
 ### Deploys.
 
