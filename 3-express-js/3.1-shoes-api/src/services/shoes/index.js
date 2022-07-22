@@ -24,7 +24,7 @@ class ShoesServices {
                 // 6.1.6 En caso de exito usar resolve();
                 resolve();
             }, 1000);
-        })
+        });
     }
 
     findAll(price) {
@@ -39,25 +39,64 @@ class ShoesServices {
                 }
                 resolve(this.shoes);
             }, 1000);
-        })
+        });
     }
 
-    findOne() {
-
+    findOne(id) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const shoe = this.shoes.find(shoe => shoe.id === parseInt(id));
+                // if (shoe !== '' && shoe !== 0 && shoe !== null && shoe !== undefined) {
+                if (shoe) {
+                    resolve(shoe);
+                }
+            }, 1000);
+        });
     }
 
-    editPartial() {
-
+    editPartial(id, body) {
+        console.log('service', id)
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const indexFounded = this.shoes.findIndex(shoe => shoe.id === parseInt(id));
+                if (indexFounded !== -1) {
+                    let shoesCopy = [ ...this.shoes ];
+                    const newBody = this.shoes[indexFounded];
+                    shoesCopy[indexFounded] = { ...newBody, ...body };
+                    this.shoes = [ ...shoesCopy ];
+                    resolve();
+                }
+            }, 1000);
+        });
     }
 
-    editComplete() {
-
+    editComplete(id, body) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const indexFounded = this.shoes.findIndex(shoe => shoe.id === parseInt(id));
+                if (indexFounded !== -1) {
+                    let shoesCopy = [ ...this.shoes ];
+                    shoesCopy[indexFounded] = { id, ...body };
+                    this.shoes = [ ...shoesCopy ];
+                    resolve();
+                }
+            }, 1000);
+        });
     }
 
-    delete() {
-
+    delete(id) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const indexFounded = this.shoes.findIndex(shoe => shoe.id === parseInt(id));
+                if (indexFounded !== -1) {
+                    const shoesCopy = [ ...this.shoes ];
+                    shoesCopy.splice(indexFounded, 1);
+                    this.shoes = [ ...shoesCopy ];
+                    resolve();
+                }
+            }, 1000);
+        });
     }
-
 }
 
 module.exports = ShoesServices;
