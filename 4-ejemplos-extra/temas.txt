@@ -1,7 +1,7 @@
-- ejemplo json server
-- despliegue heroku
-- middlewares con boom
-- migracion de imports
-- uso de faker
-- uso de ambientes y variables en postman
-- guardado de respuestas en postman
+- Heroku.
+- Pruebas desde postman (variables y enviroment).
+- Guardado de respuestas en postman.
+- Json server.
+- Ejemplo de middleware con el paquete boom.
+- Migracion de common imports a es6 imports.
+- Uso de fake
