@@ -18,7 +18,7 @@
 14. [Herramientas](#herramientas)
 15. [Glosario](#glosario)
 
-### Node.
+### Node
 
 Node es un entorno multiplataforma para ejecutar JavaScript fuera del navegador, tiene su origen en el 2009 (Ryan Lenhiart).
 Con ayuda de node se puede:
@@ -33,7 +33,7 @@ Dentro de node se utilizan los módulos y las callbacks.
 
 - **Módulo:** Permiten aislar parte de nuestro código en diferentes archivos y mandarlos llamar sólo cuándo los necesitamos.
 
-  Existen dos formas de utilizar módulos en node:
+  Existen dos **formas de utilizar módulos** en node:
 
   - Commun JS.
   - ES6 Imports.
@@ -132,11 +132,6 @@ npm run myCommand
 
 ```
 
-#### Tipos de licencias de software
-
-* MIT.
-* ISC.
-
 #### Otros gestores de dependencias
 
 * Maven.
@@ -144,33 +139,38 @@ npm run myCommand
 * Gradlew.
 * Yarn.
 
+#### Tipos de licencias de software
+
+* MIT.
+* ISC.
+
 ### Node para front y back end.
 
 A continuación se presenta un listado de los framework front y back mas populares de nodeJS.
 
 #### **Frameworks back end**
 
-* ExpressJS.
-* Hapi.
-* Koa.
-* Fastify.
+* [ExpressJS](https://expressjs.com/es/guide/routing.html).
+* [Hapi](https://hapi.dev/tutorials/?lang=en_US).
+* [Koa](https://devdocs.io/koa/).
+* [Fastify](https://www.fastify.io/docs/latest/).
 
 #### **Frameworks front end**
 
-* Gatsby.
-* EJS.
-* Nuxt.
-* Next.
+* [Gatsby](https://www.gatsbyjs.com/docs/).
+* [EJS](https://ejs.co/#docs).
+* [Nuxt](https://nuxtjs.org/docs/get-started/installation).
+* [Next](https://nextjs.org/docs).
 
 #### **Semantic Versión**
 
 Es un conjunto simple de reglas y requerimientos que dictan cómo asignar e incrementar los números de la versión de un software. Evitan la pérdida de versiones y mejoran la gestión de dependencias.
 
-Dado un número de versión MAJOR.MINOR.PATCH, se incrementa:
+Dado un número de versión **MAJOR.MINOR.PATCH**, se incrementa:
 
-* La versión MAJOR cuando realizas un cambio incompatible en el proyecto.
-* La versión MINOR cuando añades funcionalidad que compatible con versiones anteriores.
-* La versión PATCH cuando reparas errores compatibles con versiones anteriores.
+* La versión **MAJOR** cuando realizas un cambio incompatible en el proyecto.
+* La versión **MINOR** cuando añades funcionalidad que compatible con versiones anteriores.
+* La versión **PATCH** cuando reparas errores compatibles con versiones anteriores.
 
 ### Arquitectura de software.
 
@@ -244,7 +244,7 @@ Es aquel código donde cada instrucción se ejecuta en orden, línea a línea. E
 
 #### **Código asíncrono**
 
-Es aquel que tiene instrucciones que depende de algo externo (una api, una BD, escritura de archivos, etc). El event loop no se bloquea con este código y lo manda a formar a la fila de la web api y queue. Cuando el event loop esta libre, empieza a leer la cola de pendientes.
+Es aquel que tiene instrucciones que depende de algo externo (una api, una BD, escritura de archivos, etc). El event loop no se bloquea con este código y lo manda a formar a la fila de la web api. Cuando el event loop esta libre de tareas no dependientes, empieza a leer la fila ddde la web api y moverlas al queue, de donde comienza a ejecutar las tareas pendientes.
 
 #### **Flujo de ejecución**
 
@@ -363,6 +363,25 @@ Es un conjunto de acuerdos entre cliente y servidor para establecer la comunicac
 ### ExpressJS.
 
 [Documentation](https://expressjs.com/es/starter/installing.html).
+
+#### Arquitectura de proyecto Node
+
+```
+src
+│   index.js        # Entry point for application
+└───config          # Application environment variables and secrets
+└───controllers     # Express controllers for routes, respond to client requests, call services
+└───loaders         # Handles all startup processes
+└───middlewares     # Operations that check or maniuplate request prior to controller utilizing
+└───models          # Database models
+└───routes          # Express routes that define API structure
+└───services        # Encapsulates all business logic
+└───test            # Tests go here
+```
+
+Documentación capa controller.
+
+Documentación de arquitectura node.
 
 **Nombrado de constantes**
 
@@ -602,19 +621,20 @@ Entre menos entendemos un producto, tendrá mayores errores.
 
 #### SysAdmin
 
-Working...
+Sysadmin suele ser el responsable de garantizar el correcto funcionamiento de toda plataforma tecnológica e informática de donde trabaja, trabajando incansablemente para ejecutar las necesarias actividades (implementaciones, actualizaciones o cambios) y mantener la operatividad del negocio.
 
 #### DevOps
 
-Working...
+DevOps es un marco de trabajo y una filosofía en constante evolución que promueve un mejor desarrollo de aplicaciones en menos tiempo y la rápida publicación de nuevas o revisadas funciones de software o productos para los clientes.
+Con DevOps se promueve una comunicación continua más fluida, la colaboración, la integración, la visibilidad y la transparencia entre equipos de desarrollo de aplicaciones (Dev) y sus homólogos en operaciones tecnológicas (Ops).
 
 #### Machine Learning
 
-Working...
+El machine learning (aprendizaje automático) es una rama de la inteligencia artificial que permite que las máquinas aprendan sin ser expresamente programadas para ello. Una habilidad indispensable para hacer sistemas capaces de identificar patrones entre los datos para hacer predicciones. Esta tecnología está presente en un sinfín de aplicaciones como las recomendaciones de Netflix o Spotify, las respuestas inteligentes de Gmail o el habla de Siri y Alexa.
 
 #### Big Data
 
-Working...
+Big Data es un término que describe el gran volumen de datos, tanto estructurados como no estructurados, que inundan los negocios cada día. Pero no es la cantidad de datos lo que es importante. Lo que importa con el Big Data es lo que las organizaciones hacen con los datos. Big Data se puede analizar para obtener ideas que conduzcan a mejores decisiones y movimientos de negocios estratégicos.
 
 ### Herramientas
 
