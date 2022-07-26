@@ -1,0 +1,7 @@
+- Heroku.
+- Pruebas desde postman (variables y enviroment).
+- Guardado de respuestas en postman.
+- Json server.
+- Ejemplo de middleware con el paquete boom.
+- Migracion de common imports a es6 imports.
+- Uso de faker.
